@@ -17,17 +17,17 @@ public class Payment {
     //  private List<Item> accounts = new ArrayList<>();
 
     public Payment(){
-        this.add(new StudentLoan("sg2309", 4.24, 100000, 10));
-        this.add(new StudentLoan("temp123", 4.24, 50000, 15));
-        this.add(new StudentLoan("ID345", 4.24, 10000, 5));
+        this.add(new StudentLoan("Student Loan","sg2309", 4.24, 100000, 10));
+        this.add(new StudentLoan("Student Loan","temp123", 4.24, 50000, 15));
+        this.add(new StudentLoan("Student Loan","ID345", 4.24, 10000, 5));
 
-        this.add(new Mortgage("rb1478", 7.90, 300000, 10));
-        this.add(new Mortgage("ab9102", 7.90, 250000, 15));
-        this.add(new Mortgage("xyz123", 7.90, 400000, 20));
+        this.add(new Mortgage("Mortgage Loan","rb1478", 7.90, 300000, 10));
+        this.add(new Mortgage("Mortgage Loan","ab9102", 7.90, 250000, 15));
+        this.add(new Mortgage("Mortgage Loan","xyz123", 7.90, 400000, 20));
 
-        this.add(new PersonalLoan("loanID", 36, 10000, 3));
-        this.add(new PersonalLoan("bm387", 36, 10000, 5));
-        this.add(new PersonalLoan("yb18044", 36, 5000, 3));
+        this.add(new PersonalLoan("Personal Loan","loanID", 36, 10000, 3));
+        this.add(new PersonalLoan("Personal Loan","bm387", 36, 10000, 5));
+        this.add(new PersonalLoan("Personal Loan","yb18044", 36, 5000, 3));
 
     }
 

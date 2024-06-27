@@ -2,18 +2,21 @@ package com.example.NuedaProjSpring.model;
 
 public class Mortgage implements Loan {
 
+    private String type;
     private String id;
     private double rate;
     private double amount;
     private double term;
 
-    public Mortgage(String id, double rate, double amount, double term){
+    public Mortgage(String type, String id, double rate, double amount, double term){
+        this.type = type;
         this.id = id;
         this.rate = rate;
         this.amount = amount;
         this.term = term;
     }
 
+    
     @Override
     public void setID(String id) {
         // TODO Auto-generated method stub
@@ -64,7 +67,21 @@ public class Mortgage implements Loan {
 
     @Override
     public String toString(){
-        return "Loan id: " + id + "; term: " + term + "; interest rate: " + rate + "; amount: " + amount;
+        return "Loan type " + type + "; Loan id: " + id + "; term: " + term + "; interest rate: " + rate + "; amount: " + amount;
+    }
+
+
+    @Override
+    public void setType(String type) {
+        // TODO Auto-generated method stub
+        this.type = type;
+    }
+
+
+    @Override
+    public String getType() {
+        // TODO Auto-generated method stub
+        return type;
     }
     
 }

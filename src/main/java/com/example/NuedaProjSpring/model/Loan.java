@@ -8,7 +8,9 @@ public interface Loan {
     void setIntRate(double rate);
     void setAmount(double amt);
     void setTerm(double year);
+    void setType(String type);
 
+    String getType();
     String getID();
     double getRate();
     double getAmount();
