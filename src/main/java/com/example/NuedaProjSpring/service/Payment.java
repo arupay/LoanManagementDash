@@ -17,18 +17,20 @@ public class Payment {
     //  private List<Item> accounts = new ArrayList<>();
 
     public Payment(){
-        this.add(new StudentLoan("Student Loan","sg2309", 4.24, 100000, 10));
-        this.add(new StudentLoan("Student Loan","temp123", 4.24, 50000, 15));
-        this.add(new StudentLoan("Student Loan","ID345", 4.24, 10000, 5));
+        // Adjusted student loans with more realistic amounts and rates
+        this.add(new StudentLoan("Student Loan","sgd2309", 4.5, 20000, 10));
+        this.add(new StudentLoan("Student Loan","tds123", 4.0, 30000, 15));
+        this.add(new StudentLoan("Student Loan","das345", 4.75, 15000, 5));
 
-        this.add(new Mortgage("Mortgage Loan","rb1478", 7.90, 300000, 10));
-        this.add(new Mortgage("Mortgage Loan","ab9102", 7.90, 250000, 15));
-        this.add(new Mortgage("Mortgage Loan","xyz123", 7.90, 400000, 20));
+        // Adjusted mortgage loans with more realistic amounts and rates
+        this.add(new Mortgage("Mortgage Loan","rb1478", 3.75, 300000, 20));
+        this.add(new Mortgage("Mortgage Loan","ab9102", 3.5, 250000, 15));
+        this.add(new Mortgage("Mortgage Loan","xyz123", 4.0, 400000, 30));
 
-        this.add(new PersonalLoan("Personal Loan","loanID", 36, 10000, 3));
-        this.add(new PersonalLoan("Personal Loan","bm387", 36, 10000, 5));
-        this.add(new PersonalLoan("Personal Loan","yb18044", 36, 5000, 3));
-
+        // Adjusted personal loans with more realistic amounts and rates
+        this.add(new PersonalLoan("Personal Loan","kn388", 8.5, 10000, 3));
+        this.add(new PersonalLoan("Personal Loan","bm387", 9.0, 15000, 5));
+        this.add(new PersonalLoan("Personal Loan","yb18044", 8.0, 5000, 3));
     }
 
     public void add(Loan x){
@@ -47,13 +49,17 @@ public class Payment {
         }
     }
 
+    private double roundToTwoDecimalPlaces(double value) {
+        return Math.round(value * 100.0) / 100.0;
+    }
+
     public double getMonthlyPayment(String id) {
         Loan x = findLoan(id);
         if(x != null){
             double monthlyInterestRate = x.getRate() / 1200;
             double monthlyPayment = x.getAmount() * monthlyInterestRate / (1 - 
                 (1 / Math.pow(1 + monthlyInterestRate, x.getTerm() * 12)));
-            return monthlyPayment;    
+            return roundToTwoDecimalPlaces(monthlyPayment);
         }
         else{
             System.out.println("Loan not found!");
@@ -66,7 +72,7 @@ public class Payment {
         if(x != null){
             double totalPayment = getMonthlyPayment(id) * x.getTerm() * 12;
             System.out.println("Total payment is " + totalPayment);
-            return totalPayment;    
+            return roundToTwoDecimalPlaces(totalPayment);
         }
         else {
             System.out.println("Loan not found!");

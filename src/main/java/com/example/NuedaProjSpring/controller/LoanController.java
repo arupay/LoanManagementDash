@@ -27,17 +27,13 @@ public class LoanController {
         return service.findLoan(loanID); // Spring converts/serializes into json and send it back as http request
     }
 
-    @GetMapping("/monthly/{loanID}")  // Example additional method
-    public String testMonthlyMethod(@PathVariable("loanID") String loanID) {
-        // Perform some test operations with the Payment service
-        double monthlyPayment = service.getMonthlyPayment(loanID);
-        return "Monthly payment for loan " + loanID + " is " + monthlyPayment;
+    @GetMapping("/monthly/{loanID}")
+    public double getMonthlyPayment(@PathVariable("loanID") String loanID) {
+        return service.getMonthlyPayment(loanID);
     }
 
-    @GetMapping("/total/{loanID}")  // Example additional method
-    public String testTotalMethod(@PathVariable("loanID") String loanID) {
-        // Perform some test operations with the Payment service
-        double totalPayment = service.getTotalPayment(loanID);
-        return "Total payment for loan " + loanID + " is " + totalPayment;
+    @GetMapping("/total/{loanID}")
+    public double getTotalPayment(@PathVariable("loanID") String loanID) {
+        return service.getTotalPayment(loanID);
     }
 }
