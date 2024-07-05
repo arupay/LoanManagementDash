@@ -7,13 +7,17 @@ public class PersonalLoan implements Loan {
     private double rate;
     private double amount;
     private double term;
+    private String status;
+    private String originationDate;
 
-    public PersonalLoan(String type, String id, double rate, double amount, double term){
+    public PersonalLoan(String type, String id, double rate, double amount, double term,String status, String originationDate){
         this.type = type;
         this.id = id;
         this.rate = rate;
         this.amount = amount;
         this.term = term;
+        this.status = status;
+        this.originationDate = originationDate;
     }
 
     @Override
@@ -81,4 +85,25 @@ public class PersonalLoan implements Loan {
         // TODO Auto-generated method stub
         return type;
     }
+
+    @Override
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setOriginationDate(String date) {
+        this.originationDate = date;
+    }
+
+    @Override
+    public String getOriginationDate() {
+        return originationDate;
+    }
+
 }
